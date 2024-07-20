@@ -1,6 +1,6 @@
 const express = require('express')
 const { Server } = require('socket.io')
-const http  = require('http')
+const https  = require('https')
 const getUserDetailsFromToken = require('../helpers/getUserDetailsFromToken')
 const UserModel = require('../models/UserModel')
 const { ConversationModel,MessageModel } = require('../models/ConversationModel')
@@ -9,10 +9,10 @@ const getConversation = require('../helpers/getConversation')
 const app = express()
 
 /***socket connection */
-const server = http.createServer(app)
+const server = https.createServer(app)
 const io = new Server(server,{
     cors : {
-        origin : 'ws://chat-app-server-hn8e.onrender.com',
+        origin : 'wss://chat-app-server-hn8e.onrender.com',
         credentials : true
     }
 })
