@@ -12,7 +12,7 @@ const app = express()
 const server = https.createServer(app)
 const io = new Server(server,{
     cors : {
-        origin : 'wss://chat-app-server-hn8e.onrender.com',
+        origin : process.env.FRONTEND_URL,
         credentials : true
     }
 })
