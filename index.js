@@ -20,7 +20,21 @@ app.get('/',(request,response)=>{
     response.json({
         message : "Server running at " + PORT
     })
-})
+})  
+
+//added 
+
+app.get('/api/user-details', (req, res) => {
+  const user = {
+    _id: "userId",
+    name: "userName",
+    email: "userEmail",
+    profile_pic: "userProfilePic",
+    logout: false // or true if the user needs to be logged out
+  };
+
+  res.json({ data: user });
+});
 
 //api endpoints
 app.use('/api',router)
