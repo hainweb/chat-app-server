@@ -18,6 +18,21 @@ const app = express();
 
 const allowedOrigins = [process.env.FRONTEND_URL]; // Add any other allowed origins here
 
+
+//added 
+app.get('/api/user-details', (req, res) => {
+  const user = {
+    _id: "userId",
+    name: "userName",
+    email: "userEmail",
+    profile_pic: "userProfilePic",
+    logout: false // or true if the user needs to be logged out
+  };
+
+  res.json({ data: user });
+});
+
+
 // Middleware to handle CORS
 app.use(cors({
     origin: allowedOrigins,
