@@ -1,7 +1,14 @@
 const express = require('express');
 const { Server } = require('socket.io');
 const http = require('http');
-const cors = require('cors');
+const cors = require('cors'); 
+
+const dotenv = require('dotenv');
+const path = require('path');
+
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
+
+
 const getUserDetailsFromToken = require('../helpers/getUserDetailsFromToken');
 const UserModel = require('../models/UserModel');
 const { ConversationModel, MessageModel } = require('../models/ConversationModel');
